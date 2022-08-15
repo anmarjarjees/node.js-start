@@ -1,5 +1,5 @@
 # node.js-start
-![Node.JS Logo]()
+![Node.JS Logo](/images/nodejs-logo.jpg)
 Just a very quick start and short introduction of node.js as full package from coding with node and installing express for loading html pages.
 
 # About Node.JS
