@@ -1,0 +1,4 @@
+Hi there!
+Yes, although I am just a temporary file,
+but without me, you cannot practice readFiles using  fs module functions/methods :-)
+

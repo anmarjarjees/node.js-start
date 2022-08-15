@@ -1,0 +1,23 @@
+{
+  "name": "node.js-start",
+  "version": "1.0.0",
+  "description": "Just a very quick start and short introduction of node.js as full package from coding to deployment",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anmarjarjees/node.js-start.git"
+  },
+  "bugs": {
+    "url": "https://github.com/anmarjarjees/node.js-start/issues"
+  },
+  "homepage": "https://github.com/anmarjarjees/node.js-start#readme"
+}
