@@ -46,7 +46,7 @@ Assigning the desired object to exports will simply rebind the local exports var
 Check the code in "my-module2.js" file about using module.exports
 */
 
-// in this file "my-module1.js", we're exporting functions and values individually
+// In this file "my-module1.js", we're exporting functions and values individually
 exports.checkEvenOdd = (number) => {
     if (number % 2 == 0) return "Even";
     else return "Odd";
@@ -74,7 +74,7 @@ exports.findTotal = findTotal;
 
 // We can pass values:
 const provinceName = "Ontario";
-// passing "province" instead of "provinceName" It doesn’t have to be the same as the original variable name:
+// passing "province" instead of "provinceName" It doesn't have to be the same as the original variable name:
 exports.province = provinceName;
 
 // Or in one line:

@@ -21,27 +21,36 @@ In Node.js a similar, it provides a console module which provides tons of very u
 to interact with the command line. But Node.js cannot or show the details after two levels of nested objects
 */
 console.log("Hello World!"); // Hello World!
-
+/* 
+console.log() works well with simple/complex objects in any web browser, we can go deeper as much as we want. 
+console.log() has different behaviour in Node.js:
+*/
 const obj = {
-    name: 'joe',
+    name: 'Alex',
     age: 35,
     person1: {
         name: 'Tony',
         age: 50,
         person2: {
-            name: 'Albert',
+            name: 'Allen',
             age: 21,
             person3: {
-                name: 'Peter',
+                name: 'Sam',
                 age: 23,
             },
         },
     },
 };
 console.log(obj); // Node.js will output all the members till "person3" it will output: person3: [Object]
+/* 
+The Command Line Interface/Terminal Window doesn't support a professional UI for displaying all the deepest details or tne deepest nested objects.
 
-// The best way to do so, while preserving the pretty print, is to use
-console.log(JSON.stringify(obj, null, 2));
+For this reason, node prints only three levels, and anything beyond will be [Object]
+*/
+
+// The best way to do so, while preserving the pretty print, is to use JSON.stringify()
+// .stringify(): Converts a JavaScript value to a JavaScript Object Notation (JSON) string.
+console.log(JSON.stringify(obj, null, 3));
 // where 2 is the number of spaces to use for indentation.
 
 /*
@@ -52,8 +61,13 @@ thus being pseudo-globals.
 
 Just to have a quick idea about "Namespaces", 
 Namespaces are named program regions used to limit the scope of variables inside the program. 
+It's exactly like using "namespaces" in C# or like using "packages" in Java :-)
+
 They are used in many programming languages to create a separate region for a group of variables, functions, classes, etc. 
 Link: https://en.wikibooks.org/wiki/Introduction_to_Programming_Languages/Scoping_with_Namespaces
+
+The built-in globals in Node.js
+Link: https://nodejs.org/en/knowledge/getting-started/globals-in-node-js/
 
 True Globals List:
 ******************
@@ -65,7 +79,7 @@ Setting a property to this namespace makes it globally visible within the runnin
 Provides interaction with the current Node.js process. 
 
 3. console - The Node.js built-in console module
-which wraps various STDIO functionality in a browser-like way. 
+which wraps various STDIO (Standard Input Output) functionality in a browser-like way. 
 
 4. setTimeout(), clearTimeout(), setInterval(), clearInterval():
 The built-in timer functions are globals
@@ -88,7 +102,7 @@ Note that this is not defined while running the Node.js REPL.
 4. require(): this function is a built-in function, exposed per-module, 
 that allows other valid modules to be included.
 
-Link: https://nodejs.org/en/knowledge/getting-started/globals-in-node-js/
+
 Link: https://nodejs.org/dist/latest-v16.x/docs/api/globals.html#global-objects
 */
 
@@ -111,6 +125,7 @@ so we can just type "console.log()" instead of typing "global.console.log()"
 */
 
 global.console.log("Hello World using global.console.log()!");
+// in Browsers => window.console.log();
 
 // check another use of global below:
 /*
@@ -203,6 +218,7 @@ let repeat = setInterval(() => {
 // The same logic with "clearInterval" as with "clearTimeout"
 
 clearInterval(repeat); // This will prevent the setInterval() from keep printing the message
+
 /*
 Just to review:
 Yes, require() is a function. Don't forget that in JS functions are first-class citizenship

@@ -17,5 +17,5 @@ app.get("/", async (request, response) => {
 app.listen(process.env.PORT || 3000, () => console.log(`Our application is ready and available on http://localhost:3000`))
 
 
-// Final Step: Deploying our Application so people can see it:
-// We can Heroku Free plan or using the free Google App Engine
+// We can deploy our Application so people can see it:
+// We can use the free Google App Engine instead of Heroku (no more Free plan)

@@ -45,7 +45,7 @@ console.log(readFile); // [Function: readFile]
 console.log(readFileSync); // [Function: readFileSync]
 
 // **** The second way: 
-// requiring the full fs modules with all its built -in functions(methods)
+// requiring the full fs modules with all its built-in functions(methods)
 const fs = require('fs');
 console.log(fs); // long object with all its members ...
 // We will not use "fs" object in this file, later...
@@ -75,7 +75,7 @@ We will practice both to clarify the idea:
 /*
 NOTE: Blocking vs Non-Blocking
 Any function that ends with "Sync" it means "blocking"
-sync === blocking
+sync <===> blocking
 which means this function like in our current example "readFileSync" 
 needs to finish its work/job/duty before any other code can run 
 
@@ -86,6 +86,7 @@ Link: https://nodejs.org/en/docs/guides/blocking-vs-non-blocking/
 // Read the file: readFileSync(Path, Encoding)
 // NOTE: Synchronously reads the entire contents of a file.
 const txt = readFileSync('./test.txt', 'utf-8'); // passing the path, the encoding
+
 
 console.log("\ntest.txt content :\n", txt); // Hello, there! We are working on node.js!...
 // Reading a file can take a long time in real situation when we have huge file

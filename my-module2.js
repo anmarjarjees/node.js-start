@@ -52,15 +52,15 @@ console.log("The object module: ", module);
 
 // Below attaching a literal object that has two properties and one method
 module.exports = {
-    school: "ABC Advanced Learning",
-    program: "Advanced Web Programming",
-    year: 2022,
-    finAvg: function (x, y) {
-        return (x + y) / 2;
-    },
-    isPassed: function (x) {
-        return x >= 60 ? true : false;
-    }
+  school: "ABC Advanced Learning",
+  program: "Advanced Web Programming",
+  year: 2022,
+  finAvg: function (x, y) {
+    return (x + y) / 2;
+  },
+  isPassed: function (x) {
+    return x >= 60 ? true : false;
+  }
 }
 
 /*

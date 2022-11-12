@@ -69,6 +69,5 @@ console.log(process.env.USERNAME); // YourComputerUserName
 process object has many different methods also,
 many of them deal with advanced aspects of an application
 */
-// process.cwd() => returns the 'current working directory' of the process
+// process.cwd() => returns the 'Current Working Directory' of the process
 console.log(process.cwd()); // D:\YourFullPath\node.js-start
-

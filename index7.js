@@ -15,17 +15,14 @@ Link: https://www.w3schools.com/nodejs/ref_modules.asp
 
 The traditional way to import a module in node.js,
 is to use "require" function:
-- COMMON JS => require()
+- COMMON JS (CommonJS) [CSJ] => require()
 
 node.js recently (version 14 and later) added support for "ES MODULES" :
-- ES MODULES => import/export syntax
+- ES MODULES (ES module) [ESM] => import/export syntax
 
 Most node.js are written in vanilla javascript and still use "require"
 
-VanillaJS is a name to refer to using plain/pure JavaScript without any additional libraries like jQuery back in the days.
-
-Hint: The term vanilla script is used to refer to the pure JavaScript (or we can say plain JavaScript) 
-without any type of additional library.
+Hint: The term vanilla script (VanillaJS) is used to refer to the pure JavaScript (or we can say plain JavaScript) without any type of additional library.
 
 Other types/format of modules that belongs to JavaScript:
 - The Asynchronous Module Definition (AMD) format:
