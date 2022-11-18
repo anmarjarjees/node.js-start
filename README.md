@@ -4,8 +4,12 @@
 Just a very quick start and a short introduction to Node.js as a full package from coding with Node.js and installing express for loading HTML pages.
 
 # About Node.JS
-Node.js is an open-source, cross-platform JavaScript back-end runtime environment that allows developers to build server-side and network applications with JavaScript.
-Node.js help us run JavaScript code outside a web browser. Node.js allows you to run JavaScript on the server. The runtime is intended for use outside of a browser context (i.e. running directly on a computer or server OS). As such, the environment omits browser-specific JavaScript APIs and adds support for more traditional OS APIs including HTTP and file system libraries.
+Node.js is an open-source, cross-platform JavaScript back-end runtime environment that allows developers to build server-side and network applications with JavaScript (like JRE in Java).
+Node.js help us run JavaScript code outside a web browser. 
+
+Node.js allows you:
+- to run JavaScript on the server. The runtime is intended for use outside of a browser context (i.e. running directly on a computer or server OS). As such, the environment omits browser-specific JavaScript APIs and adds support for more traditional OS APIs including HTTP and file system libraries.
+- to utilize JavaScript to communicate with the database and interacting with different files
 
 # Node.JS History
 - was written initially by Ryan Dahl in 2009
@@ -14,7 +18,8 @@ Node.js help us run JavaScript code outside a web browser. Node.js allows you to
 - In February 2015, the intent to form a neutral Node.js Foundation was announced. This foundation involves many large companies like GoDaddy, IBM, LinkedIn, Microsoft, Netflix, PayPal, Walmart, Yahoo!, and Amazon Web Services
 
 # Node.js Package Manager (npm)
-npm is bundled with Node.js. It runs on the command line as the command npm. It is a package manager that downloads packages into a node_modules folder. You call the downloaded packages through const libraryModule = require("libraryname").
+npm is bundled with Node.js. It runs on the command line as the command "npm...". It is a package manager that downloads packages into a node_modules folder. You call the downloaded packages through:
+> const libraryModule = require("libraryname").
 
 Mozilla Developer Network (MDN) [Node.JS Definition](https://developer.mozilla.org/en-US/docs/Glossary/Node.js)
 
@@ -87,8 +92,10 @@ It is a simple interactive computer programming environment that takes single us
 
 # Working with Modules: ECMAScript modules & CommonJS modules
 Node.js has two module systems: CommonJS modules and ECMAScript modules.
-Link: https://nodejs.org/api/modules.html#modules-commonjs-modules
-Link: https://nodejs.org/api/esm.html#modules-ecmascript-modules
+- CommonJS modules are the original way to package JavaScript code for Node.js. Node.js also supports the ECMAScript modules standard used by browsers and other JavaScript runtimes.
+  - Link: https://nodejs.org/api/modules.html#modules-commonjs-modules
+- ECMAScript modules are the official standard format to package JavaScript code for reuse. Modules are defined using a variety of import and export statements.
+  - Link: https://nodejs.org/api/esm.html#modules-ecmascript-modules
 
 ## ECMAScript modules:
 Are the official standard format to package JavaScript code 
@@ -145,7 +152,7 @@ In node.js, so we can use the function require() and passing the fileName and as
 So the could looks like this:
 const tools = require('./helper.js');
 
-now the varaible "tools" became an object to give us the access to all the function inside helpers.js
+now the variable "tools" became an object to give us the access to all the function inside helpers.js
 so for example, if helpers.js has these functions: fun1  and fun2
 we can access them using:
 tools.fun1();
@@ -160,7 +167,6 @@ as opposed to .mjs when the import() statement is used.
 - ES modules are the standard for JavaScript and it's fully supported by all the browsers (was introduced in ES6-2015) and the current versions of node.js,
 while CommonJS is the default in Node.js server-side (not for the browsers), 
 so it's supported by all versions of node.js since version 14
-
 
 You can visit the [MDN JavaScript Module](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules) to learn more about this concept
 
@@ -192,4 +198,4 @@ References:
 - https://www.javascripttutorial.net/
 - https://www.freecodecamp.org/news/
 - https://reflectoring.io/
-- Tech Talk Youtube channel
+- [Tech Talk Youtube channel](https://www.youtube.com/channel/UCI-fqZ8uEEFLzzEF3vwKDLA)

@@ -1,4 +1,4 @@
-// NOTE: This file is being used with "index7.html"
+// NOTE: This file is being used with "index8.html"
 // Creating this file to serve/act as a module
 // a module is code that we group together for the purposes of sharing and reuse.
 
@@ -18,7 +18,7 @@ adding module.exports to reference the object that going to receive our code
 module.exports is a property of the module object in node.js. module
 This special object which is included in every JavaScript file in the node.js
 
-so "module.exports" will tell node.js which part of code (objects, functions, varaibles) to be exported from the given/current file to become available to other files:
+so "module.exports" will tell node.js which part of code (objects, functions, variables) to be exported from the given/current file to become available to other files:
 */
 
 console.log("The object module: ", module);

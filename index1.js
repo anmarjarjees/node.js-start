@@ -129,9 +129,9 @@ global.console.log("Hello World using global.console.log()!");
 
 // check another use of global below:
 /*
-The scope of the varaible can determine whether it has a global/file scope, a function (local) scope, or block scope (var vs let). Please refer to my notes about varaible scope in my two JavaScript repos.
+The scope of the variable can determine whether it has a global/file scope, a function (local) scope, or block scope (var vs let). Please refer to my notes about variable scope in my two JavaScript repos.
 
-How to setup an actual global varaible in nodejs across all nodejs files?
+How to setup an actual global variable in nodejs across all nodejs files?
 - To set up a global variable, we need to create it on the global object
 */
 // we are assigning our custom property "myTopic" to the "global" object
@@ -165,8 +165,7 @@ TWO IMPORTANT NOTE to remember about JavaScript:
 - It is "single threaded"
 This means that code cannot create new threads and run in parallel.
 
-Link: https://nodejs.dev/learn/javascript-asynchronous-programming-and-callbacks#javascript
-
+Link: https://nodejs.dev/en/learn/javascript-asynchronous-programming-and-callbacks/
 Callbacks:
 A callback is a simple function that's passed as a value to another function,
 and will only be executed when the event happens. 
@@ -176,7 +175,7 @@ which can be assigned to variables and passed around to other functions
 
 Let's practice these global functions:
 setTimeout(), clearTimeout(), setInterval(), clearInterval()
-Link: https://nodejs.dev/learn/discover-javascript-timers
+Link: https://nodejs.dev/en/learn/discover-javascript-timers/
 */
 
 // create our "greet1" function to be used as a callback function

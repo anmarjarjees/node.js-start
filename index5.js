@@ -9,7 +9,7 @@ fs module general:
 Link: https://nodejs.dev/learn/the-nodejs-fs-module
 
 fs module read files:
-Link: https://nodejs.dev/learn/reading-files-with-nodejs
+Link: https://nodejs.dev/en/learn/reading-files-with-nodejs/
 
 With import Way:
 import { readFile } from 'fs';

@@ -6,7 +6,8 @@ To quickly summarize what we have learned about "Modules":
 
 Modules are just javascript files that export their code to be used by other files
 
-node.js has many built-in modules, which you can use without any further installation
+node.js has many built-in modules, 
+which you can use without any further installation
 we used these two modules throughout this tutorial:
 - fs => To handle the file system
 - events => To handle events
@@ -18,7 +19,7 @@ is to use "require" function:
 - COMMON JS (CommonJS) [CSJ] => require()
 
 node.js recently (version 14 and later) added support for "ES MODULES" :
-- ES MODULES (ES module) [ESM] => import/export syntax
+- ES MODULES (ES module) [MJS] => import/export syntax
 
 Most node.js are written in vanilla javascript and still use "require"
 
@@ -42,6 +43,10 @@ We have created a file to imitate the idea of using modules in JS, the file is n
 // Creating a variable for receiving the contents from the file "my-module1.js" 
 // Below we are importing all the content of "my-module1.js" to this variable my-module1:
 const myModule1 = require('./my-module1');
+
+// Or using this ES6 syntax
+// import myModule1, { checkEvenOdd, province } from './my-module1';
+
 const { isPassed } = require('./my-module2');
 
 console.log("\nmyModule1 Object: ", myModule1);

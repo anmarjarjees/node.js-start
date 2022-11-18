@@ -10,8 +10,8 @@ node.js has a built-in file system module called "fs"
 > all the methods are asynchronous by default, but they can also work synchronously by appending Sync
 > fs can do other things in a blocking or non-blocking way
 
-Link: https://nodejs.dev/learn/the-nodejs-fs-module
-Link: https://nodejs.dev/learn/reading-files-with-nodejs
+Link: https://nodejs.dev/en/api/v19/fs/
+Link: https://nodejs.dev/en/learn/reading-files-with-nodejs/
 */
 
 // We have a text file named test.txt
@@ -36,7 +36,7 @@ Importing only the two functions from the file system module (fs):
 */
 
 // **** The first way: 
-// creating two constant varaibles / functions: readFile, readFileSync to requiring these two (fs) functions
+// creating two constant variables / functions: readFile, readFileSync to requiring these two (fs) functions
 // is using Object Destructing (Please refer to my repo "ECMAScript6" for more clarification)
 // In such case we can only use or have access to only these two functions: readFile() and readFileSync()
 // and yes they have to be the same name exactly as the original functions in the "fs" module

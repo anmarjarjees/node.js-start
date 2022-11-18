@@ -14,12 +14,14 @@ async function getFile() {
 NOTE:
 With high/recent versions of node (version 14 and later), 
 we can use this function with top level await,
-which means we can skip the keyword "sync" and just use "await" to resolve the promise:
+which means we can skip the keyword "sync"
+and just use "await" to resolve the promise:
 const myFile = await readFile('./test.txt', 'utf-8');
 */
 
 getFile();
 
 /*
-We can also add the try/catch or if condition... as we did before in case if any error happens when reading file
+We can also add the try/catch or if condition... 
+as we did before in case if any error happens when reading file
 */
