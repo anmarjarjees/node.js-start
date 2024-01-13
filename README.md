@@ -35,9 +35,21 @@ Node Package Manager (npm) [npm Docs](https://docs.npmjs.com/)
 
 # Installing Node.js
 Two different ways to install Node.js
-- Through the official website of Node.js: https://nodejs.org/en/. This will install the entire package of Node.js. For any new update, you will need to download the new version and install it again.
 
-- Through using nvm. NVM stands for "Node Version Manager" which is intended to install/manage/update the Node.js. this helps you to install different versions of Node.js in your system and use or activate the version you want to use for each application, or simply update your current Node.js version without the need to re-install it again. For installing Node.js through "nvm", you will need to download the specific version of nvm based on your operating system:
+## First Way:
+Through the official website of Node.js: https://nodejs.org/en/. This will install the entire package of Node.js. For any new update, you will need to download the new version and install it again.
+
+When you go Node.js website, you will see two buttons to choose from.
+- Current: for the most recent updated version with all the new features
+- LTS: for Long Term Support. LTS version is commonly recommended for most users as all its features have been already tested and used for a while
+
+![Node Home Page](images/nodejs-home-page.png)
+
+You can just follow the installation process with the default selected options and settings:
+!["Node.js Custom Setup](/images/nodejs-custom-setup.png)
+
+## Second Way:
+Through using nvm. NVM stands for "Node Version Manager" which is intended to install/manage/update the Node.js. this helps you to install different versions of Node.js in your system and use or activate the version you want to use for each application, or simply update your current Node.js version without the need to re-install it again. For installing Node.js through "nvm", you will need to download the specific version of nvm based on your operating system:
 
   - nvm package for Mac/Linux => ["NVM GitHub repo for Mac"](https://github.com/nvm-sh/nvm)
   - nvm package for Windows => ["NVM GitHub repo for Windows"](https://github.com/coreybutler/nvm-windows)
@@ -48,24 +60,32 @@ After installing the nvm package, you can:
 - You can specify which version you want to use:
     > nvm use x.x.x
 
-When you go Node.js website, you will see two buttons to choose from.
-- Current: for the most recent updated version with all the new features
-- LTS: for Long Term Support. LTS version is commonly recommended for most users as all its features have been already tested and used for a while
-
+# Node.JS, npm, and npx
 Node.JS and NPM will be installed in your machine, and you can check:
-- for node version
+
+1. for node version:
+```
     > node -v
     OR
     > node --version
+```
 
-- for npm version
+2. "npm" is used to install packages. For npm version:
+```
     > npm -v
-
     OR
     > npm --version
+```
 
-# Running Node.js
-- For quick learning and simple practice, you can use REPL (Read Eval Print Loop): Also termed an interactive top-level or language shell. 
+3. "npx" is used to run/execute various scripts
+```
+    > npx -v
+    OR
+    > npx --version
+```
+
+# Running Node.js Environment
+For quick learning and simple practice, you can use REPL (Read Eval Print Loop): Also termed an interactive top-level or language shell. 
 
 It is a simple interactive computer programming environment that takes single user inputs, executes them, and returns the result to the user; a program written in a REPL environment is executed piecewise.:
   - Read - Reads user's input, parses the input into JavaScript data structure, and stores
@@ -75,11 +95,24 @@ It is a simple interactive computer programming environment that takes single us
   - Loop - Loops the above command until the user presses ctrl-c twice.
   
   You can run REPL (the platform to write JS and Node.js code in the command line window):
-    - Open your CMD/Terminal window, PowerShell, Git Bach, or ...
-    - Then type "node" and enter 
-    - You will be in Node.js.js environment where you can start writing your JS code
-    - Press CTRL+C twice OR CTRL+D to quit the Node.js mode
+
+  1. Open your CMD/Terminal window, PowerShell, Git Bach, or any other CLI (Command Line Interface) you are using 
+  2. Then type "node" and enter 
+  4. You will be in Node.js.js environment where you can start writing your JS code
+  5. Press CTRL+C twice OR CTRL+D to quit the Node.js mode
+
 - For building full applications, you use your favourite code editor, Yes, VScode :-)
+
+# Running .js files with Node.js
+We can use node.js to run our .js files without the need to using an .HTML file to call our .js file(s) in order to run them:
+  1. Navigate to your folder where you have your .js files (JS project)
+  2. Open your CMD/Terminal window, PowerShell, Git Bach, or any other CLI (Command Line Interface) you are using within the current folder of your .js file(s)
+  3. You can create a .js file like "index.js" by default as the entry point to run your .js application
+  3. Then type "node" space then the file name:
+  ```
+  node index.js
+  ```
+  4. You will see the output of your file (output the result)
 
 # Node.js Globals
 - In the browser, the global object is "window"
