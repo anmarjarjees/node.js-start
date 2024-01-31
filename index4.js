@@ -10,8 +10,8 @@ node.js has a built-in file system module called "fs"
 > all the methods are asynchronous by default, but they can also work synchronously by appending Sync
 > fs can do other things in a blocking or non-blocking way
 
-Link: https://nodejs.dev/en/api/v19/fs/
-Link: https://nodejs.dev/en/learn/reading-files-with-nodejs/
+Link: https://nodejs.org/en/learn/manipulating-files/nodejs-file-stats
+Link: https://nodejs.org/en/learn/manipulating-files/reading-files-with-nodejs
 */
 
 // We have a text file named test.txt
@@ -36,10 +36,17 @@ Importing only the two functions from the file system module (fs):
 */
 
 // **** The first way: 
-// creating two constant variables / functions: readFile, readFileSync to requiring these two (fs) functions
-// is using Object Destructing (Please refer to my repo "ECMAScript6" for more clarification)
-// In such case we can only use or have access to only these two functions: readFile() and readFileSync()
-// and yes they have to be the same name exactly as the original functions in the "fs" module
+/*
+Creating two constant variables / functions: 
+> readFile
+> readFileSync 
+to requiring these two (fs) functions "readFile" and "readFileSync"
+By using "Object Destructing" 
+(Please refer to my repo "ECMAScript6" for more clarification)
+Link: https://github.com/anmarjarjees/ECMAScript6/blob/main/Part2-Arrays-Methods/02.destructuring.html
+In such case we can only use or have access to only these two functions: readFile() and readFileSync()
+and yes they have to be the same name exactly as the original functions in the "fs" module
+*/
 const { readFile, readFileSync } = require('fs');
 console.log(readFile); // [Function: readFile]
 console.log(readFileSync); // [Function: readFileSync]
@@ -73,13 +80,14 @@ We will practice both to clarify the idea:
 */
 
 /*
-NOTE: Blocking vs Non-Blocking
+Blocking vs Non-Blocking
+Link: Link: https://nodejs.org/en/docs/guides/blocking-vs-non-blocking/
 Any function that ends with "Sync" it means "blocking"
 sync <===> blocking
 which means this function like in our current example "readFileSync" 
 needs to finish its work/job/duty before any other code can run 
 
-Link: https://nodejs.org/en/docs/guides/blocking-vs-non-blocking/
+Link: https://nodejs.org/en/learn/asynchronous-work/overview-of-blocking-vs-non-blocking#blocking
 */
 
 // Starting with the first way of calling and using only specific functions
@@ -130,7 +138,9 @@ then the callback function when the file is ready
 */
 // NOTE: Asynchronously reads the entire contents of a file.
 readFile('./test.txt', 'utf-8', (err, data) => {
-    // Display the file content
+    // If error throw the exception error 
+    if (err) throw err;
+    // If no errors => Display the file content
     console.log("\ntest.txt content :\n", data);
     /*
     NOTE: if there is no such file, node.js will output "undefined"

@@ -12,14 +12,14 @@ Node.js allows you:
 - to utilize JavaScript to communicate with the database and interacting with different files
 
 # Node.JS History
-- was written initially by Ryan Dahl in 2009
+- Was written initially by Ryan Dahl in 2009
 - In January 2010, a package manager was introduced for the Node.js environment called npm (Node Package Manager). NPM is designed to make it easy for programmers to publish and share their code with others and also to simplify the installation, updating, and uninstallation of packages
 - In July 2011, the first Node.js build supporting Windows was released
 - In February 2015, the intent to form a neutral Node.js Foundation was announced. This foundation involves many large companies like GoDaddy, IBM, LinkedIn, Microsoft, Netflix, PayPal, Walmart, Yahoo!, and Amazon Web Services
 
 # Node.js Package Manager (npm)
 npm is bundled with Node.js. It runs on the command line as the command "npm...". It is a package manager that downloads packages into a node_modules folder. You call the downloaded packages through:
-> const libraryModule = require("libraryname").
+> const libraryModule = require("library-name").
 
 Mozilla Developer Network (MDN) [Node.JS Definition](https://developer.mozilla.org/en-US/docs/Glossary/Node.js)
 
@@ -94,14 +94,14 @@ It is a simple interactive computer programming environment that takes single us
   - Print - Prints the result.
   - Loop - Loops the above command until the user presses ctrl-c twice.
   
-  You can run REPL (the platform to write JS and Node.js code in the command line window):
+  You can [run REPL (the platform to write JS and Node.js code in the command line window)](https://nodejs.org/en/learn/command-line/how-to-use-the-nodejs-repl):
 
   1. Open your CMD/Terminal window, PowerShell, Git Bach, or any other CLI (Command Line Interface) you are using 
   2. Then type "node" and enter 
   4. You will be in Node.js.js environment where you can start writing your JS code
   5. Press CTRL+C twice OR CTRL+D to quit the Node.js mode
 
-- For building full applications, you use your favourite code editor, Yes, VScode :-)
+- For building full applications, you use your favourite code editor; Yes, VS code :-)
 
 # Running .js files with Node.js
 We can use node.js to run our .js files without the need to using an .HTML file to call our .js file(s) in order to run them:
@@ -225,6 +225,7 @@ References:
 - https://nodejs.dev/en/learn/
 - https://www.pluralsight.com/blog/
 - https://en.wikibooks.org/wiki/Main_Page
+- https://nodejs.dev/learn
 - https://nodejs.org/en/
 - https://developer.mozilla.org/en-US/docs/Glossary
 - https://stackoverflow.com/questions/

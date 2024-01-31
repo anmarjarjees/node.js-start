@@ -54,7 +54,8 @@ console.log(JSON.stringify(obj, null, 3));
 // where 2 is the number of spaces to use for indentation.
 
 /*
-Node.js has a number of built-in global identifiers:
+Global objects:
+These objects are available in all modules. Node.js has a number of built-in global identifiers:
 Some of these are true globals, being visible everywhere; 
 others exist at the module level, but are inherent to every module, 
 thus being pseudo-globals.
@@ -66,17 +67,20 @@ It's exactly like using "namespaces" in C# or like using "packages" in Java :-)
 They are used in many programming languages to create a separate region for a group of variables, functions, classes, etc. 
 Link: https://en.wikibooks.org/wiki/Introduction_to_Programming_Languages/Scoping_with_Namespaces
 
+
 The built-in globals in Node.js
-Link: https://nodejs.org/en/knowledge/getting-started/globals-in-node-js/
+Link: https://nodejs.org/api/globals.html
 
 True Globals List:
 ******************
 1. global - The global namespace:
-So the global object "global" is a namespace that is available throughout the entire node process 
-Setting a property to this namespace makes it globally visible within the running process.
+> the global object "global" is a namespace that is available throughout the entire node process 
+> setting a property to this namespace makes it globally visible within the running process.
 
 2. process - The Node.js built-in process module:
-Provides interaction with the current Node.js process. 
+Provides information about, and control over, the current Node.js process.
+Example: const process = require('node:process');
+Link: https://nodejs.org/api/process.html#process
 
 3. console - The Node.js built-in console module
 which wraps various STDIO (Standard Input Output) functionality in a browser-like way. 
@@ -84,26 +88,33 @@ which wraps various STDIO (Standard Input Output) functionality in a browser-lik
 4. setTimeout(), clearTimeout(), setInterval(), clearInterval():
 The built-in timer functions are globals
 
-
 Pseudo-Globals List: 
 ********************
+- The following variables may appear to be global but are not
 - They exist only in the scope of modules (the module scope)
 - These objects are available in all modules 
 - They are included at the module level in every module
 
 1. module, module.exports, exports:
 These objects all pertain to the Node.js module system
+Link: https://nodejs.org/api/modules.html#module
 
 2. __filename: this keyword contains the path of the currently executing file.
 Note that this is not defined while running the Node.js REPL.
+Link: https://nodejs.org/api/modules.html#__filename
 
 3. __dirname: - Like __filename, this keyword contains the path to the root directory of the currently executing script. Also not present in the Node.js REPL.
+Link: https://nodejs.org/api/modules.html#__dirname
 
 4. require(): this function is a built-in function, exposed per-module, 
 that allows other valid modules to be included.
+Link: https://nodejs.org/api/modules.html#requireid
 
+5. exports: A reference to the module.exports that is shorter to type. See the section about the exports shortcut for details on when to use exports and when to use module.exports.
+Link: https://nodejs.org/api/modules.html#exports
 
-Link: https://nodejs.org/dist/latest-v16.x/docs/api/globals.html#global-objects
+For the full list:
+Link: https://nodejs.org/api/globals.html#global-objectss
 */
 
 /*
@@ -165,7 +176,7 @@ TWO IMPORTANT NOTE to remember about JavaScript:
 - It is "single threaded"
 This means that code cannot create new threads and run in parallel.
 
-Link: https://nodejs.dev/en/learn/javascript-asynchronous-programming-and-callbacks/
+Link: https://nodejs.org/en/learn/asynchronous-work/javascript-asynchronous-programming-and-callbacks
 Callbacks:
 A callback is a simple function that's passed as a value to another function,
 and will only be executed when the event happens. 
@@ -175,7 +186,7 @@ which can be assigned to variables and passed around to other functions
 
 Let's practice these global functions:
 setTimeout(), clearTimeout(), setInterval(), clearInterval()
-Link: https://nodejs.dev/en/learn/discover-javascript-timers/
+Link: https://nodejs.org/api/timers.html#class-timeout
 */
 
 // create our "greet1" function to be used as a callback function
@@ -230,9 +241,11 @@ They are being able to be:
  and more...
  Basically, first-class citizenship simply means "being able to do what everyone else can do."
 
- Link: https://www.pluralsight.com/blog/data-professional/javascript-functions-as-first-class-objects#:~:text=Basically%2C%20first%2Dclass%20citizenship%20simply,be%20assigned%20key%3A%20value%20pairs.
+ Link: https://www.pluralsight.com/blog/data-professional/javascript-functions-as-first-class-objects
 
  Link: https://developer.mozilla.org/en-US/docs/Glossary/First-class_Function
+ Link: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions
+
  Look at the example below:
  */
 

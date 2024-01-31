@@ -13,6 +13,7 @@ Process events with "process" object
 - process.on(...) Listen to an event that can come in many different forms
 - using an event name like "exit" and listen to the event using .on() method
 - node has many event names than can be used with process.on()
+- The syntax: process.on('even-name',callbackFunction)
 https://nodejs.org/api/process.html#process
 Link: https://nodejs.org/api/process.html#process-events
 Link: https://nodejs.org/api/process.html#processexitcode
@@ -37,8 +38,8 @@ Link: https://nodejs.org/api/process.html#processexitcode
 
     the listener callback function is an arrow function
 */
-
-// The event below is built-in to node: process.on("exit", callBackFunction)
+// syntax: process.on('even-name', callbackFunction)
+// The event below is built-in to node: process.on("exit", function(){ })
 process.on('exit', function () {
     // do something!
     console.log("Take care"); // This will be the last text to be read as it's only at the end on exit
@@ -64,24 +65,39 @@ Using node native CommonJS syntax OR ES6 module syntax
 require() and import()
 */
 
-// Creating our own events from scratch:
-// *************************************
+// Creating our own custom events from scratch:
+// ********************************************
 /*
 On the backend side, Node.js offers us the option to build our custom events using the events module
 
 The event module offers the EventEmitter class, which we'll use to handle our events.
 
-Link: https://nodejs.dev/en/learn/the-nodejs-event-emitter/
+Link: https://nodejs.org/en/learn/asynchronous-work/the-nodejs-event-emitter
 */
 
 /* 
-Just a review about constants in JS:
-- Are block-scoped, much like variables declared using the let keyword
-- The value of a constant can't be changed through reassignment
+Just a quick recap about the keywords "const" and "let" in JS:
+- Are both "block-scoped"
+- "let" and "const" have the same features, but the value of a constant can't be changed through reassignment
+*/
+
+/*
+NOTE:
+We are using the node native method "require()",
+we will have the following notification:
+"But File is a CommonJS module; it may be converted to an ES module.ts(80001)"
+
+Two Ways:
+- CommonJS module => using require() function (The classical native node function)
+- ES module => using "import" (The modern ES6 statement)
 */
 
 // First: Importing "EventEmitter" from "events" module that it's built-in to node.js
+// Using CommonJS module way:
 const EventEmitter = require('events');
+
+// Or using ES module way:
+// import EventEmitter from 'events';
 /*
 The destructuring assignment syntax can also be used to declare the constant EventEmitter, 
 we don't have to use this syntax although it gives us a clear idea 

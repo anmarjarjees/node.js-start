@@ -23,7 +23,7 @@ The steps for installing a module:
 Step#1: create and prepare package.json file
 This document is all you need to know about what's required in your package.json file. 
 It must be actual JSON, not just a JavaScript object literal.
-Link: https://nodejs.dev/learn/the-package-json-guide
+Link: https://nodejs.org/api/packages.html#packagejson-and-file-extensions
 Link: https://docs.npmjs.com/cli/v8/configuring-npm/package-json
 Link: https://docs.npmjs.com/cli/v6/commands/npm-init
 

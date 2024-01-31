@@ -56,7 +56,10 @@ console.log(process.argv);
 // .report: is an object whose methods are used to generate diagnostic reports for the current process
 console.log(process.report);
 
-
+/*
+The process core module of Node.js provides the env property which hosts all the environment variables that were set at the moment the process was started.
+https://nodejs.org/en/learn/command-line/how-to-read-environment-variables-from-nodejs
+*/
 // .env: returns an object containing the user environment.
 console.log(process.env); // the long env object
 

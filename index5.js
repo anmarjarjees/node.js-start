@@ -6,10 +6,10 @@ The "fs" module provides a lot of very useful functionality to access and intera
 There is no need to install it. Being part of the Node.js core, it can be used by simply requiring it:
 
 fs module general:
-Link: https://nodejs.dev/learn/the-nodejs-fs-module
+Link: https://nodejs.org/api/fs.html#file-system
 
 fs module read files:
-Link: https://nodejs.dev/en/learn/reading-files-with-nodejs/
+Link: https://nodejs.org/en/learn/manipulating-files/reading-files-with-nodejs
 
 With import Way:
 import { readFile } from 'fs';
