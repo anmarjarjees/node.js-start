@@ -2,9 +2,9 @@
 // ***********************
 /*
 To quickly summarize what we have learned about "Modules":
-*************************************************
+**********************************************************
 
-Modules are just javascript files that export their code to be used by other files
+Modules are just javaScript files that export their code to be used by other files
 
 node.js has many built-in modules, 
 which you can use without any further installation
@@ -14,12 +14,12 @@ we used these two modules throughout this tutorial:
 
 Link: https://www.w3schools.com/nodejs/ref_modules.asp
 
-The traditional way to import a module in node.js,
+The traditional/classical way to import a module in node.js,
 is to use "require" function:
-- COMMON JS (CommonJS) [CSJ] => require()
+- COMMON JS (CommonJS) [CSJ] => using the "require()" syntax
 
-node.js recently (version 14 and later) added support for "ES MODULES" :
-- ES MODULES (ES module) [MJS] => import/export syntax
+node.js (version 14 and later) added support for "ES MODULES" :
+- ES MODULES (ES module) [MJS] => using "import/export" syntax
 
 Most node.js are written in vanilla javascript and still use "require"
 

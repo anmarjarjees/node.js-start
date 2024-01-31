@@ -215,9 +215,9 @@ To go through the learning process step by step, you will need to read the files
 - index6.js
 - index7.js
 - index8.js
-- index.js => is the final file to start the application
+- index.js => is the final file to start the application using "Express"
 
-NOTES:
+### NOTES:
 - To practice the final two files: index8.js and index.js you need to install the express JS framework, and the steps are written in the comment inside the files
 - the folder "node-modules" have been excluded from the repo as its just contains files for the package "express" that you can install
 

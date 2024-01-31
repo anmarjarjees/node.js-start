@@ -95,12 +95,11 @@ Link: https://nodejs.org/en/learn/asynchronous-work/overview-of-blocking-vs-non-
 // NOTE: Synchronously reads the entire contents of a file.
 const txt = readFileSync('./test.txt', 'utf-8'); // passing the path, the encoding
 
-
 console.log("\ntest.txt content :\n", txt); // Hello, there! We are working on node.js!...
 // Reading a file can take a long time in real situation when we have huge file
 
 // so the console code below will not be executed before finishing reading the file
-console.log("\nYou will read me after loading your file");
+console.log("\nYou will read me after loading your file using 'readFileSync' function");
 
 // Let's try the same function "readFileSync" with try/catch block in case if the operations fails:
 // So we can catch the error:
@@ -113,6 +112,8 @@ without try/catch, JS will throw the error message and the application will stop
 
 It's considered a good coding practice to wrap our code with try/catch block
 */
+
+// Link: https://nodejs.org/en/learn/manipulating-files/reading-files-with-nodejs#reading-files-with-nodejs
 try {
     // You can try to change the file name to test the catch() block
     const quote = readFileSync('./temp.txt', 'utf-8');
@@ -136,11 +137,13 @@ This function accepts two arguments and having the access to them:
 So the rest of the code will be executed first 
 then the callback function when the file is ready
 */
+
 // NOTE: Asynchronously reads the entire contents of a file.
 readFile('./test.txt', 'utf-8', (err, data) => {
     // If error throw the exception error 
     if (err) throw err;
     // If no errors => Display the file content
+    // NOTE: **With "readFile" this console.log statement will run "SECOND":**
     console.log("\ntest.txt content :\n", data);
     /*
     NOTE: if there is no such file, node.js will output "undefined"
@@ -148,20 +151,12 @@ readFile('./test.txt', 'utf-8', (err, data) => {
     */
 });
 
+// NOTE: **With "readFile" this console.log statement will run "FIRST":**
 console.log("You will read me without the need of waiting for loading your file, even before :-)");
 
-readFile('./temp.txt', 'utf-8', (err, data) => {
-    // Display the file content
-    console.log("\ntemp.txt content :\n", data);
-    /*
-    NOTE: if there is no such file, node.js will output "undefined"
-    as we haven't write the code if there is an error yet
-    */
-});
-
-// Now we should enhance our code by taking the advantage of the "err" arguments with if condition:
 // for testing the if error => I put wrong name "template.txt"
 readFile('./template.txt', 'utf-8', (err, data) => {
+    // If error console error message and terminate the function
     if (err) {
         console.error("Sorry the file cannot be read: ", err);
         return;

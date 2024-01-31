@@ -131,6 +131,7 @@ as window is a global object, we can just write: console.log()
 or alert() instead of window.alert(), or confirm() instead of window.confirm()
 
 Same idea with nodejs
+
 global.console => since global is global :-) => we can ignore writing it
 so we can just type "console.log()" instead of typing "global.console.log()"
 */
@@ -145,10 +146,14 @@ The scope of the variable can determine whether it has a global/file scope, a fu
 How to setup an actual global variable in nodejs across all nodejs files?
 - To set up a global variable, we need to create it on the global object
 */
-// we are assigning our custom property "myTopic" to the "global" object
+// we are assigning a variable "myTopic" as a custom property "myTopic" to the "global" object
 global.myTopic = "node.js Quick Start";
 // so we can access this property anywhere in our code
-console.log(myTopic);
+console.log("Our global variable 'myTopic' :", myTopic);
+/*
+"Global Variables" can be used/accessed inside another module (JS file) within the same project (app),
+still we need to import/require the .js file that contains the global variable declaration first
+*/
 
 console.log("File Name => " + __filename); // D:\YourFullPath\node.js-start\index1.js
 console.log("Directory Name => " + __dirname); // D:\YourFullPath\
