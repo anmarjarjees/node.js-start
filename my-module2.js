@@ -1,4 +1,4 @@
-// NOTE: This file is being used with "index8.html"
+// NOTE: This file is being used with "index8.js"
 // Creating this file to serve/act as a module
 // a module is code that we group together for the purposes of sharing and reuse.
 

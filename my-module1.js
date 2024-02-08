@@ -1,4 +1,4 @@
-// NOTE: This file is being used with "index7.html"
+// NOTE: This file is being used with "index7.js"
 // Creating this file to serve/act as a module
 // a module is code that we group together for the purposes of sharing and reuse.
 
@@ -39,18 +39,29 @@ module is not actually a global but rather local to each module.
 // Link: https://nodejs.org/dist/latest-v16.x/docs/api/modules.html#exports
 
 /*
-The module.exports object is created by the Module system. Sometimes this is not acceptable; 
-many want their module to be an instance of some class. 
+The module.exports object is created by the Module system. 
+Sometimes this is not acceptable; 
+Many want their module to be an instance of some class. 
 To do this, assign the desired export object to module.exports. 
 Assigning the desired object to exports will simply rebind the local exports variable, which is probably not what is desired.
 Check the code in "my-module2.js" file about using module.exports
 */
 
 // In this file "my-module1.js", we're exporting functions and values individually
+// CommonJS Syntax => exports.functionName() { }
 exports.checkEvenOdd = (number) => {
     if (number % 2 == 0) return "Even";
     else return "Odd";
 }
+
+// Below is the same function but with ES Module:
+// ES Module Syntax => export function functionName() { }
+/*
+export function checkEvenOdd(number) {
+    if (number % 2 == 0) return "Even";
+    else return "Odd";
+}
+*/
 
 exports.getFactorial = (number) => {
     let factorial = 1;
