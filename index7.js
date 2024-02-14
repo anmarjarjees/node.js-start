@@ -1,114 +1,100 @@
-// Modules and NPM Summary
-// ***********************
 /*
-To quickly summarize what we have learned about "Modules":
-**********************************************************
+Complete Code Example From:
+https://nodejs.org/en/learn/getting-started/introduction-to-nodejs#an-example-nodejs-application
+*/
 
-Modules are just javaScript files that export their code to be used by other files
+// Import the native node module "HTTP" using require() "CommonJS":
+const http = require('node:http');
 
-node.js has many built-in modules, 
-which you can use without any further installation
-we used these two modules throughout this tutorial:
-- fs => To handle the file system
-- events => To handle events
+// Calling "readFile" from the "fs" module
+const { readFile } = require('fs');
 
-Link: https://www.w3schools.com/nodejs/ref_modules.asp
+const hostname = '127.0.0.1';
+const port = 3000;
 
-The traditional/classical way to import a module in node.js,
-is to use "require" function:
-- COMMON JS (CommonJS) [CSJ] => using the "require()" syntax
+// Create our CallBack function seperatly just to simplify the code structure:
+function callBackFun(request, response) {
+    // console.log(response);
 
-node.js (version 14 and later) added support for "ES MODULES" :
-- ES MODULES (ES module) [MJS] => using "import/export" syntax
+    /*
+     With Node.js we can use the "header" to infrom the Node.JS server some details when we request 
+     a response from Node.js. In other words, what type of data we want to see in the response. Types of response could be: plain text, html contents, JSON object, cookies etc...
 
-Most node.js are written in vanilla javascript and still use "require"
+     send/set the type of response 
+     that we need to receive from the "server" details about the request such as what type of data the client, user, or request wants in the response.
+     The header tells the server details about the request such as what type of data the client, user, or request wants in the response.
 
-Hint: The term vanilla script (VanillaJS) is used to refer to the pure JavaScript (or we can say plain JavaScript) without any type of additional library.
+      we can also use "writeHead()" which involves more options:
+      syntax: response.writeHead(statusCode[, statusMessage][, headers])
+      > The status code is a 3-digit HTTP status code, like 404. 
+      > The last argument, headers, are the response headers. 
+      > Optionally one can give a human-readable statusMessage as the second argument.
+      Link: https://nodejs.org/api/http.html#responsewriteheadstatuscode-statusmessage-headers
+    */
+    // We set the Content-Type header:
+    // using => 'text/plain' => will display the html content as literal text
+    // using => 'text/html' => will render the html elements  
+    // 'contentType' is 'text/html'
+    response.setHeader('Content-Type', 'text/html'); // will be used by default anyway
+    /* 
+    readFile() function:
+    Returns: <Promise> Fulfills upon a successful read with the contents of the file.
+    Link: https://nodejs.org/api/fs.html#filehandlereadfileoptions
+    >  readFile('./index.html', (err, data) => {})
+    >  readFile('./index.html', 'utf-8', (err, data) => {})
+    >  readFile('./index.html', null, (err, data) => {})
+    */
+    readFile('./home.html', (err, data) => {
+        // If error throw the exception error 
+        if (err) {
+            // we can throw an error
+            // throw err;
+            console.error(`Error: ${err}`);
+            response.statusCode = 400;
+            // Link: https://nodejs.org/api/http.html#responsestatuscode
+            // response.end();
+        } else {
+            response.write(data);
+            // response.end();
+        }
 
-Other types/format of modules that belongs to JavaScript:
-- The Asynchronous Module Definition (AMD) format:
-  is used in browsers with a define function to define modules
-- The System.register format:
-  was designed to support ES6 modules within ES5
-- The Universal Module Definition (UMD) format:
-  can be used both in the browser and in Node.js
+        // combine the two statment to only one at the end:
+        response.end();
+        /*
+        This method is required to finish/terminate our request after Node sending us required response. It signals to the server that all of the response headers and body have been sent; that server should consider this message complete. The method, response.end(), MUST be called on each response.
+
+        If we don't use this method, the server will still keep waiting for another request from the client as you will see the browser url still shows the loading.
+        Link: https://nodejs.org/api/http.html#responseenddata-encoding-callback
+        */
+    });
+} // callBackFun()
+/*
+1. the "Server" object called "server" returned by "createServer()"" is an EventEmitter, 
+So below is just shorthand for creating a server object and then adding the listener later:
+
+Code Sample From Node:
+*********************
+const server = http.createServer((req, res) => {
+  res.statusCode = 200;
+  res.setHeader('Content-Type', 'text/plain');
+  res.end('Hello World\n');
+});
+
+OR: Create the Server:
+*********************
+Any node web server application will at some point have to create a web server object. 
+This is done by using "createServer".
+The createServer() method of http creates a new HTTP server and returns it.
 */
 
 /*
-Modules: CommonJS modules in Action:
-We have created a file to imitate the idea of using modules in JS, the file is named "my-module1.js" 
-"my-module1.js" might contain some of my functions, classes, objects... to be used here in this file "index7.html"
+2. In order to actually serve requests, the listen method needs to be called on the server object. 
+In most cases, all you'll need to pass to listen is the port number you want the server to listen on. There are some other options too, so consult the
 */
+http.createServer(callBackFun).listen(port, hostname, () => {
+    console.log(`Server running at http://${hostname}:${port}/`);
+});
 
-// Creating a variable for receiving the contents from the file "my-module1.js" 
-// Below we are importing all the content of "my-module1.js" to this variable my-module1:
-const myModule1 = require('./my-module1');
 
-// Or using this ES6 syntax
-// import myModule1, { checkEvenOdd, province } from './my-module1';
-
-const { isPassed } = require('./my-module2');
-
-console.log("\nmyModule1 Object: ", myModule1);
-/*
-myModule1 Object:  {
-  checkEvenOdd: [Function (anonymous)],
-  getFactorial: [Function (anonymous)],
-  findTotal: [Function: findTotal],
-  province: 'Ontario',
-  country: 'Canada',
-  city: 'Toronto'
-}
-*/
-// if the module file that we are requiring/importing is is completely empty
-// "myModule1" will be empty also, so it will console.log and empty object {}
-// to make the module useful, we need to import some code from it
-
-console.log(`number 5 is ${myModule1.checkEvenOdd(5)}`); // number 5 is Odd
-console.log(`number 8 is ${myModule1.checkEvenOdd(8)}`); // number 8 is Even
-console.log(`number 3 is ${myModule1.checkEvenOdd(3)}`); // number 3 is Odd
-
-console.log(`3! is ${myModule1.getFactorial(3)}`); // 3! is 6
-console.log(`5! is ${myModule1.getFactorial(5)}`); // 5! is 120
-console.log(`0! is ${myModule1.getFactorial(0)}`); // 0! is 1
-
-let myNumbers = [56.89, 90.12, 79.45, 34.56];
-console.log(`The total of my numbers (${myNumbers}) is ${myModule1.findTotal(myNumbers)}`);
-// The total of my numbers (56.89,90.12,79.45,34.56) is 261.02
-
-console.log(`Our school is in ${myModule1.country}, province ${myModule1.province}, city ${myModule1.city}.`);
-// Our school is in Canada, province Ontario, city Toronto.
-
-// Now let's requiring the object from my-module2.js file:
-// *******************************************************
-const myModule2 = require('./my-module2');
-
-console.log("\nmyModule2 Object: ", myModule2);
-/*
-myModule2 Object:  {
-  school: 'ABC Advanced Learning',
-  program: 'Advanced Web Programming',
-  year: 2022,
-  finAvg: [Function: finAvg],
-  isPassed: [Function: isPassed]
-}
-*/
-
-let avg = myModule2.finAvg(90, 85);
-console.log(`
-School Name: ${myModule2.school}
-Program: ${myModule2.program}
-Year: ${myModule2.year}
-Average: ${avg}
-Status: Since your average is ${avg}, ${myModule2.isPassed(avg) ? "you can move to the next module" : "you will need to do an extra assignment"}
-`);
-
-/*
-School Name: ABC Advanced Learning
-Program: Advanced Web Programming
-Year: 2022
-Average: 87.5
-Status: Since your average is 87.5, you can move to the next module
-*/
 
 
