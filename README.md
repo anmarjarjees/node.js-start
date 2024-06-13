@@ -206,17 +206,28 @@ You can visit the [MDN JavaScript Module](https://developer.mozilla.org/en-US/do
 This is a glimpse about things that will be covered in details later!
 
 # Start Learning
-To go through the learning process step by step, you will need to read the files in the following sequence to understand the key points of working with Node.js:
-- index1.js
-- index2.js
-- index3.js
-- index4.js
-- index5.js
-- index6.js
-- index7.js
-- index8.js
-- index9.js
-- index.js => is the final file to start the application using "Express"
+To go through the learning process step by step, you will need to read the files in the following sequence of the folders to understand the key points of working with Node.js:
+- 1.basic 
+  - index1.js
+  - index2.js
+- 2.events
+  - index1.js
+- 3.files
+  - index1.js
+  - index2.js
+  - index3.js
+- 4.node_pages
+  - index1.js
+  - index2.js
+- 5.modules
+  - my-module1.js
+  - index1.js
+  - my-module2.js
+  - index2.js
+- 6.packages
+  - index1
+  - index2
+  
 
 ### NOTES:
 - To practice the final two files: index8.js and index.js you need to install the express JS framework, and the steps are written in the comment inside the files

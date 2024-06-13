@@ -5,16 +5,9 @@ After learning how to import code from our own custom modules,
 we need to learn how to import code form other online resources?
 Yes, the same idea when we install packages for our python application like flask
 
-In node.js we can import code from the world via npm (Node Package Manager)
-
-NPM: is a package manager for the JavaScript programming language maintained by npm, Inc.
-npm is the default package manager for the JavaScript runtime environment Node.js.
-
-npm, Inc., is a company founded in 2014. It was acquired by GitHub, a subsidiary of Microsoft, in 2020
-was acquired by GitHub then recently Microsoft
-
-Notice that when you install node.js it install npm also, so as we use "pip" to install Python packages, npm is a tool that we can use to install a remote packages for our JS applications to be used in our own code
+In node.js we can import code from the world via npm (Node Package Manager) also
 */
+
 
 /*
 The steps for installing a module:

@@ -1,4 +1,4 @@
-// NOTE: This file is being used with "index8.js"
+// NOTE: This file is being used with "index1.js"
 // Creating this file to serve/act as a module
 // a module is code that we group together for the purposes of sharing and reuse.
 
@@ -94,4 +94,32 @@ exports.city = "Toronto";
 
 // Another way:
 // Attaching a literal object that can have multiple properties and methods
-// In such case, we can use one module.exports syntax => check "my-modules2.js" file
+
+/*
+If you want to export a complete object in one assignment 
+instead of building it one property at a time, 
+assign it to module.exports as shown below 
+(you can also do this to make the root of the exports object a constructor or other function):
+
+adding module.exports to reference the object that going to receive our code
+module.exports is a property of the module object in node.js. module
+This special object which is included in every JavaScript file in the node.js
+
+so "module.exports" will tell node.js which part of code (objects, functions, variables) to be exported from the given/current file to become available to other files:
+*/
+
+/*
+ Module {
+  id: '.',
+  path: 'D:\\YourFullPath\\node.js-start',
+  exports: {},
+  filename: 'D:\\YourFullPath\\node.js-start\\my-module.js',
+  loaded: false,
+  children: [],
+  paths: [
+    'D:\\YourFullPath\\node.js-start\\node_modules',
+    'D:\\YourFullPath\\node_modules',
+    etc..
+  ]
+}
+*/

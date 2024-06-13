@@ -1,29 +1,31 @@
-// The entry point to a node.js application is "index.js" file
-// so if the main file name is only "index", we can run it just by typing: node .
-// "." as we are pointing to the root directory of the current app
+// The entry point for a Node.js application is typically "index.js"
+// If the main file is named "index.js", you can run it by typing: node .
+// "." points to the root directory of the current app
 // > node .
 
-// Otherwise if the file has another name like "app.js":
+// If the file has a different name like "app.js":
 // > node app.js
 
 /*
-NOTE: node.js assumes (by default) that your files have the .js extension, so you can skip the extension :-)
-just type: 
+NOTE: Node.js assumes (by default) that your files have the .js extension, so you can skip it. 
+Just type: 
 > node myFilename
 > node app
 */
 
 /*
-When you type console.log() into a JavaScript program that runs in the browser, 
-that is going to create a nice entry in the Browser Console.
+When you type console.log() in a JavaScript program that runs in the browser,
+it creates a nice entry in the Browser Console.
 
-In Node.js a similar, it provides a console module which provides tons of very useful ways
-to interact with the command line. But Node.js cannot or show the details after two levels of nested objects
+In Node.js, it provides a console module with various useful ways
+to interact with the command line. However, Node.js cannot display details
+beyond two levels of nested objects.
 */
 console.log("Hello World!"); // Hello World!
-/* 
-console.log() works well with simple/complex objects in any web browser, we can go deeper as much as we want. 
-console.log() has different behaviour in Node.js:
+
+/*
+console.log() works well with simple/complex objects in any web browser; we can go as deep as we want.
+In Node.js, console.log() behaves differently:
 */
 const obj = {
     name: 'Alex',
@@ -41,7 +43,10 @@ const obj = {
         },
     },
 };
-console.log(obj); // Node.js will output all the members till "person3" it will output: person3: [Object]
+
+// Node.js will output all the members till "person3" it will output: person3: [Object]
+console.log(obj);
+
 /* 
 The Command Line Interface/Terminal Window doesn't support a professional UI for displaying all the deepest details or tne deepest nested objects.
 
@@ -51,91 +56,92 @@ For this reason, node prints only three levels, and anything beyond will be [Obj
 // The best way to do so, while preserving the pretty print, is to use JSON.stringify()
 // .stringify(): Converts a JavaScript value to a JavaScript Object Notation (JSON) string.
 console.log(JSON.stringify(obj, null, 3));
-// where 2 is the number of spaces to use for indentation.
+// where 3 is the number of spaces to use for indentation.
 
 /*
 Global objects:
-These objects are available in all modules. Node.js has a number of built-in global identifiers:
-Some of these are true globals, being visible everywhere; 
-others exist at the module level, but are inherent to every module, 
-thus being pseudo-globals.
+These objects are available in all modules. 
+Node.js has a number of built-in global identifiers:
+- Some are true globals, visible everywhere.
+- Others are pseudo-globals, inherent to every module.
 
 Just to have a quick idea about "Namespaces", 
-Namespaces are named program regions used to limit the scope of variables inside the program. 
-It's exactly like using "namespaces" in C# or like using "packages" in Java :-)
+For quick reference on "Namespaces",
+they limit variable scope, similar to packages in Java.
 
 They are used in many programming languages to create a separate region for a group of variables, functions, classes, etc. 
 Link: https://en.wikibooks.org/wiki/Introduction_to_Programming_Languages/Scoping_with_Namespaces
 
 
-The built-in globals in Node.js
+Built-in globals in Node.js
 Link: https://nodejs.org/api/globals.html
 
 True Globals List:
 ******************
 1. global - The global namespace:
-> the global object "global" is a namespace that is available throughout the entire node process 
-> setting a property to this namespace makes it globally visible within the running process.
+   - The global object "global" is a namespace that is available throughout the entire Node.js process.
+   - Setting a property to this namespace makes it globally visible within the running process.
 
 2. process - The Node.js built-in process module:
-Provides information about, and control over, the current Node.js process.
-Example: const process = require('node:process');
-Link: https://nodejs.org/api/process.html#process
+   - Provides information about, and control over, the current Node.js process.
+   - Example: const process = require('node:process');
+   - Link: https://nodejs.org/api/process.html#process
 
-3. console - The Node.js built-in console module
-which wraps various STDIO (Standard Input Output) functionality in a browser-like way. 
+3. console - The Node.js built-in console module:
+   - Wraps various STDIO (Standard Input/Output) functionalities in a browser-like way.
 
 4. setTimeout(), clearTimeout(), setInterval(), clearInterval():
-The built-in timer functions are globals
+   - The built-in timer functions are globals.
 
-Pseudo-Globals List: 
+Pseudo-Globals List:
 ********************
-- The following variables may appear to be global but are not
-- They exist only in the scope of modules (the module scope)
-- These objects are available in all modules 
-- They are included at the module level in every module
+- The following variables may appear to be global but are not.
+- They exist only in the scope of modules (the module scope).
+- These objects are available in all modules.
+- They are included at the module level in every module.
 
 1. module, module.exports, exports:
-These objects all pertain to the Node.js module system
-Link: https://nodejs.org/api/modules.html#module
+   - These objects all pertain to the Node.js module system.
+   - Link: https://nodejs.org/api/modules.html#module
 
-2. __filename: this keyword contains the path of the currently executing file.
-Note that this is not defined while running the Node.js REPL.
-Link: https://nodejs.org/api/modules.html#__filename
+2. __filename: This keyword contains the path of the currently executing file.
+   - Note that this is not defined while running the Node.js REPL.
+   - Link: https://nodejs.org/api/modules.html#__filename
 
-3. __dirname: - Like __filename, this keyword contains the path to the root directory of the currently executing script. Also not present in the Node.js REPL.
-Link: https://nodejs.org/api/modules.html#__dirname
+3. __dirname: This keyword contains the path to the root directory of the currently executing script.
+   - Also not present in the Node.js REPL.
+   - Link: https://nodejs.org/api/modules.html#__dirname
 
-4. require(): this function is a built-in function, exposed per-module, 
-that allows other valid modules to be included.
-Link: https://nodejs.org/api/modules.html#requireid
+4. require(): This function is a built-in function, exposed per-module,
+   - that allows other valid modules to be included.
+   - Link: https://nodejs.org/api/modules.html#requireid
 
-5. exports: A reference to the module.exports that is shorter to type. See the section about the exports shortcut for details on when to use exports and when to use module.exports.
-Link: https://nodejs.org/api/modules.html#exports
+5. exports: A reference to module.exports that is shorter to type.
+   - See the section about the exports shortcut for details on when to use exports and when to use module.exports.
+   - Link: https://nodejs.org/api/modules.html#exports
 
 For the full list:
-Link: https://nodejs.org/api/globals.html#global-objectss
+Link: https://nodejs.org/api/globals.html#global-objects
 */
 
 /*
-The main global object named "global"
-the namespace of "global" is available throughout the entire node process
+The main global object is named "global".
+The namespace of "global" is available throughout the entire Node.js process.
 
-- namespace console
-The console module provides a simple debugging console 
-that is similar to the JavaScript console mechanism provided by web browsers.
-"global.console"
+- Namespace console:
+  - The console module provides a simple debugging console
+  - that is similar to the JavaScript console mechanism provided by web browsers.
+  - global.console
 
-Like JS in the browser, no need to write: window.console.log()
-as window is a global object, we can just write: console.log()
-or alert() instead of window.alert(), or confirm() instead of window.confirm()
+Like JavaScript in the browser, no need to write: window.console.log()
+As window is a global object, we can just write: console.log()
+Or alert() instead of window.alert(), or confirm() instead of window.confirm()
 
-Same idea with nodejs
+The same idea applies in Node.js.
 
 global.console => since global is global :-) => we can ignore writing it
-so we can just type "console.log()" instead of typing "global.console.log()"
+So we can just type "console.log()" instead of typing "global.console.log()"
 */
-
 global.console.log("Hello World using global.console.log()!");
 // in Browsers => window.console.log();
 
@@ -236,23 +242,24 @@ clearInterval(repeat); // This will prevent the setInterval() from keep printing
 
 /*
 Just to review:
-Yes, require() is a function. Don't forget that in JS functions are first-class citizenship
+***************
+Yes, require() is a function. Don't forget that in JS, functions are first-class citizens.
 Functions in JavaScript are first-class objects (or "first-class citizens").
-They are being able to be:
-- assigned to a variable
-- passed around as a function argument
-- returned from a function, 
-- treated as a value of other types
- and more...
- Basically, first-class citizenship simply means "being able to do what everyone else can do."
+They can:
+- Be assigned to a variable.
+- Be passed around as a function argument.
+- Be returned from a function.
+- Be treated as a value of other types.
+And more...
+Basically, first-class citizenship simply means "being able to do what everyone else can do."
 
- Link: https://www.pluralsight.com/blog/data-professional/javascript-functions-as-first-class-objects
+Link: https://www.pluralsight.com/blog/data-professional/javascript-functions-as-first-class-objects
 
- Link: https://developer.mozilla.org/en-US/docs/Glossary/First-class_Function
- Link: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions
+Link: https://developer.mozilla.org/en-US/docs/Glossary/First-class_Function
+Link: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions
 
- Look at the example below:
- */
+Look at the example below:
+*//
 
 function add(num1, num2) {
     return num1 + num2;
