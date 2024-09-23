@@ -12,44 +12,49 @@ fs module read files:
 Link: https://nodejs.org/en/learn/manipulating-files/reading-files-with-nodejs
 
 With import Way:
-import { readFile } from 'fs';
+import { readFile } from 'fs'; // This is ES6 syntax; use it if your environment supports ES modules.
 */
 
-// requiring the full fs modules with all its built-in functions(methods)
+// Requiring the full fs module with all its built-in functions (methods)
 const fs = require('fs');
-console.log(fs); // long object with all its members ...
+console.log(fs); // Logs the full fs object, displaying all its available methods...
 
 /*
 We will also use:
 - readFile() => asynchronous method => Asynchronously reads the entire contents of a file.
-- readFileSync() => synchronous method
+- readFileSync() => synchronous method => Reads the entire contents of a file, blocking the event loop until complete.
 */
 
 // readFile() => asynchronous method
 fs.readFile('./test.txt', 'utf8', (err, data) => {
+    // If there's an error, log it and exit the callback function.
     if (err) {
-        console.error(err);
-        return;
+        console.error("Error reading test.txt:", err);
+        return; // Exit early if an error occurs.
     }
-    console.log("\ntest.txt content :\n", data);
+    // If successful, log the contents of the file.
+    console.log("\ntest.txt content:\n", data);
 });
 
 // readFileSync() => synchronous method
 try {
+    // Blocking call to read the file synchronously"
     const data = fs.readFileSync('./temp.txt', 'utf8');
-    console.log("\ntemp.txt content :\n", data);
+    console.log("\ntemp.txt content:\n", data); // Log the contents of temp.txt.
 } catch (err) {
-    console.error(err);
+    // If an error occurs while reading the file, log it:
+    console.error("Error reading temp.txt:", err);
 }
 
 /*
 Notice that the text below "Learning about readFile and readFileSync"
-will be printed before test.txt contents but not before temp.txt contents
+will be printed before the test.txt contents but not before the temp.txt contents.
+This illustrates the difference between asynchronous (readFile) and synchronous (readFileSync) methods.
 */
 console.log("Learning about readFile and readFileSync");
 
 /*
-One final way to read from a file is using promise based solution
+One final way to read from a file is using a promise-based solution.
 Promises are asynchronous and non-blocking.
-it has much cleaner code when compared to callbacks, in the next file...
+Using promises results in much cleaner code compared to callbacks. We will explore this in the next file...
 */

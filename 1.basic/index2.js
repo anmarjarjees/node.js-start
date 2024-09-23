@@ -1,76 +1,79 @@
 /*
 The global process module:
 ==========================
-Another important global to use is "process"
-- The process object provides information about, and control over, the current Node.js process.
-- The process object is an instance of "EventEmitter" which is a class that is defined and exposed by the node:events module (as we will see later...)
-- The process object is a global object and can be accessed from anywhere/module (without requiring it)
-- process object also provides various properties to interact with
-- process object has several methods, we will use .on() to deal with events
-- Each Node.js process has a set of built-in functionality, accessible through the global process module.
-- The process object additionally contains a variety of properties that allow you to access information about the running process.
-- process object gives us access to the currently running node process
+The "process" object is an important global in Node.js that provides information about 
+and control over the current Node.js process. It is an instance of "EventEmitter", 
+which is defined and exposed by the node:events module (to be covered later).
 
+Key Points:
+- The process object is globally accessible from anywhere in your code without requiring it.
+- It offers various properties and methods to interact with the current Node.js process.
+- Each Node.js process has built-in functionality accessible through the process module.
+- The process object contains properties that provide information about the running process.
+
+For more details, refer to the official documentation: 
 Link: https://nodejs.org/api/process.html#process
 */
 
-// process => gives access to the currently running node process
-console.log(typeof process); // object
-// console.log("process object: ", process); // out all the process object
+// Accessing the process object
+console.log(typeof process); // Outputs: 'object'
+
+// Uncomment the following line to see the entire process object
+// console.log("process object: ", process); 
 
 // Node.js Process Properties
 
-// .version: contains the version of your installed/used node.js
+// .version: contains the version of your installed Node.js
 // Link: https://nodejs.org/api/process.html#processversion
-console.log(process.version); // v16.14.0 
+console.log(process.version); // Example output: v16.14.0 
 
-// .release: returns the metadata for the current node release
-console.log(process.release); // display your node version and the URL links for the current release
+// .release: returns metadata for the current Node.js release
+console.log(process.release); // Displays the node version and URL links for the current release
 
-// .platform: returns platform of the process: 'darwin', 'freebsd', 'linux', 'sunos' or 'win32'
-// .platform returns a string identifying the operating system platform for which the Node.js binary was compiled.
+// .platform: identifies the operating system platform ('darwin', 'freebsd', 'linux', 'sunos', 'win32')
 // Link: https://nodejs.org/api/process.html#processplatform
-console.log(process.platform); // win32
+console.log(process.platform); // Example output: 'win32'
 
-// .arch: The operating system CPU architecture for which the Node.js binary was compiled.
-// Possible values are: 'arm', 'arm64', 'ia32', 'mips','mipsel', 'ppc', 'ppc64', 's390', 's390x', and 'x64'
+// .arch: provides the CPU architecture for which the Node.js binary was compiled
+// Possible values include: 'arm', 'arm64', 'ia32', 'mips', 'mipsel', 'ppc', 'ppc64', 's390', 's390x', 'x64'
 // Link: https://nodejs.org/api/process.html#processarch
-console.log(process.arch); // x64
+console.log(process.arch); // Example output: 'x64'
 
-console.log(process.title); // Windows PowerShell
+// .title: returns the title of the process (e.g., terminal name)
+console.log(process.title); // Example output: 'Windows PowerShell'
 
-// .pid: (Process ID) returns an integer value specifying the PID of the process.
-console.log(process.pid); // 10108
+// .pid: returns the Process ID (PID) of the current process
+console.log(process.pid); // Example output: 10108
 
-// .argv: returns commands line arguments as an array
-// returns an array containing the command-line arguments passed when the Node.js process was launched
+// .argv: returns command line arguments as an array
+// This contains the command-line arguments passed when the Node.js process was launched
 // Link: https://nodejs.org/api/process.html#processargv 
 console.log(process.argv);
 /*
+Example output:
 [
-  'C:\YourFullPath\node.exe',
-  'D:\YourFullPath\node.js-start\\index2'
+  'C:\\YourFullPath\\node.exe',
+  'D:\\YourFullPath\\node.js-start\\index2.js'
 ]
 */
 
-// .report: is an object whose methods are used to generate diagnostic reports for the current process
-console.log(process.report);
+// .report: an object whose methods generate diagnostic reports for the current process
+console.log(process.report); // Outputs the report object (may not show useful data directly)
+
+// The process module provides the .env property, hosting all environment variables set at process start
+// Link: https://nodejs.org/en/learn/command-line/how-to-read-environment-variables-from-nodejs
+
+// .env: returns an object containing the user environment variables
+console.log(process.env); // Outputs the environment variables object
+
+// Sample environment variable properties:
+console.log(process.env.COMPUTERNAME); // Outputs your computer hardware name
+console.log(process.env.OS); // Example output: 'Windows_NT'
+console.log(process.env.USERNAME); // Outputs your computer username
 
 /*
-The process core module of Node.js provides the env property which hosts all the environment variables that were set at the moment the process was started.
-https://nodejs.org/en/learn/command-line/how-to-read-environment-variables-from-nodejs
+The process object also has many methods, many of which deal with advanced aspects of an application.
 */
-// .env: returns an object containing the user environment.
-console.log(process.env); // the long env object
 
-// env object properties samples:
-console.log(process.env.COMPUTERNAME); // Your computer hardware name
-console.log(process.env.OS); // 'Windows_NT
-console.log(process.env.USERNAME); // YourComputerUserName
-
-/*
-process object has many different methods also,
-many of them deal with advanced aspects of an application
-*/
-// process.cwd() => returns the 'Current Working Directory' of the process
-console.log(process.cwd()); // D:\YourFullPath\node.js-start
+// .cwd(): returns the current working directory of the process
+console.log(process.cwd()); // Example output: 'D:\\YourFullPath\\node.js-start'
