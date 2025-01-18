@@ -77,5 +77,5 @@ const server = http.createServer(callBackFun);
 // Start listening for incoming requests
 server.listen(port, hostname, () => {
     // Log message indicating the server is running:
-    console.log(`Server running at http://${hostname}:${port}/`);
+    console.log(`Server URL: http://${hostname}:${port}/`);
 });

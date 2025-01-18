@@ -8,7 +8,7 @@ Command: > node .
 // If the file has a different name like "app.js":
 // Command: > node app.js
 
-/*
+/* 
 NOTE: Node.js assumes (by default) that your files have the .js extension, 
 so you can skip it. Just type: 
 > node myFilename
@@ -23,7 +23,7 @@ In Node.js, it provides a console module with various useful ways
 to interact with the command line. However, Node.js cannot display details
 beyond two levels of nested objects by default.
 */
-console.log("Hello World!"); // Outputs: Hello World!
+console.log("Hello World!"); // Output: Hello World!
 
 /*
 console.log() works well with simple/complex objects in any web browser; 
@@ -63,59 +63,6 @@ console.log(JSON.stringify(obj, null, 3));
 // where 3 is the number of spaces used for indentation for better readability.
 
 /*
-Global objects:
-These objects are available in all modules
-Node.js has several built-in global identifiers:
-- Some are true globals, visible everywhere
-- Others are pseudo-globals, inherent to every module
-
-Namespaces limit variable scope, similar to packages in Java.
-// Link for quick reference on Namespaces: 
-// https://en.wikibooks.org/wiki/Introduction_to_Programming_Languages/Scoping_with_Namespaces
-
-// Built-in globals in Node.js: 
-// Link: https://nodejs.org/api/globals.html
-
-True Globals List:
-******************
-1. global - The global namespace:
-   - The global object "global" is a namespace available throughout the entire Node.js process
-   - Setting a property to this namespace makes it globally visible within the running process
-
-2. process - The Node.js built-in process module:
-   - Provides information about, and control over, the current Node.js process
-   - Example: const process = require('node:process');
-   - Link: https://nodejs.org/api/process.html#process
-
-3. console - The Node.js built-in console module:
-   - Wraps various STDIO (Standard Input/Output) functionalities in a browser-like way
-
-4. setTimeout(), clearTimeout(), setInterval(), clearInterval():
-   - The built-in timer functions are globals
-
-Pseudo-Globals List:
-********************
-- The following variables may appear to be global but are not
-- They exist only in the scope of modules (the module scope)
-- These objects are available in all modules
-- They are included at the module level in every module
-
-1. module, module.exports, exports:
-   - These objects pertain to the Node.js module system
-   - Link: https://nodejs.org/api/modules.html#module
-
-2. __filename: Contains the path of the currently executing file
-   - Note: This is not defined while running the Node.js REPL
-   - Link: https://nodejs.org/api/modules.html#__filename
-
-3. __dirname: Contains the path to the root directory of the currently executing script
-   - Also not present in the Node.js REPL
-   - Link: https://nodejs.org/api/modules.html#__dirname
-
-4. require(): A built-in function, exposed per-module, 
-   that allows other valid modules to be included
-   - Link: https://nodejs.org/api/modules.html#requireid
-
 5. exports: A reference to module.exports that is shorter to type
    - See the section about the exports shortcut for details on when to use exports and when to use module.exports
    - Link: https://nodejs.org/api/modules.html#exports
@@ -123,6 +70,111 @@ Pseudo-Globals List:
 For the full list of global objects:
 Link: https://nodejs.org/api/globals.html#global-objects
 */
+
+/*
+Global Objects in Node.js:
+***************************
+- These objects are accessible throughout the entire Node.js process.
+- They are available in the global context, meaning you can access them from anywhere in the Node.js process.
+
+Built-in globals in Node.js: 
+Link: https://nodejs.org/api/globals.html
+
+Global Objects:
+****************
+These objects are available globally across all files and modules in the Node.js process.
+
+1. global:
+   - The global object itself, accessible from any file or module.
+   - Any property added to the global object becomes globally accessible throughout the Node.js process.
+
+   - Example: 
+     global.myVar = 'hello'; 
+     // myVar is now globally available.
+
+2. process:
+   - Provides information about and control over the current Node.js process.
+   - You can access process-related data such as environment variables, exit codes, the current working directory, and more.
+   - Link: https://nodejs.org/api/process.html#process
+
+   - Example:
+     const process = require('node:process');
+     console.log(process.env.NODE_ENV); // Output: environment variable NODE_ENV  
+
+3. console:
+   - A built-in object used for logging information to the standard output (stdout) and standard error (stderr).
+   
+   - Example:
+     console.log('Hello, Node.js!');
+
+4. Timer Functions (setTimeout, clearTimeout, setInterval, clearInterval):
+   - Built-in timer-related functions that are available globally.
+   - setTimeout(): Calls a function after a specified delay (in milliseconds).
+   - setInterval(): Repeatedly calls a function at specified intervals (in milliseconds).
+   - clearTimeout() and clearInterval() are used to cancel these timers.
+   
+   - Example:
+     setTimeout(() => { console.log('This runs after 1 second'); }, 1000);
+     setInterval(() => { console.log('This runs every 2 seconds'); }, 2000);
+
+
+Module-Scope Objects (or Built-in Module Variables):
+***************************************************
+These objects are not globally scoped, but they are automatically available in every module in Node.js.
+
+Module-Scope Objects:
+************************
+1. module, module.exports, exports:
+   - These objects are specific to each module in Node.js.
+   - `module.exports` is the actual object that is used to export functions or values from the module.
+   - `exports` is a reference to `module.exports` and is a shorthand for exporting functionality. However, **assigning a new value to `exports` will break the reference to `module.exports`**.
+   - Link: https://nodejs.org/api/modules.html#module
+   
+   - Example:
+     module.exports = function() { console.log('Hello!'); };
+     // or equivalently:
+     exports.greet = function() { console.log('Hello!'); };
+     
+     // Notice that if we reassign exports:
+     // exports = { some: 'value' }
+     // It will break the reference to module.exports.
+     
+
+2. __filename:
+   - Contains the absolute path of the currently executing file (the file where the code is running).
+   - Link: https://nodejs.org/api/modules.html#__filename
+
+   - Example:
+     console.log(__filename); // Output: the full path of the current file
+   
+
+3. __dirname:
+   - Contains the directory name of the currently executing file.
+   - Link: https://nodejs.org/api/modules.html#__dirname
+
+   - Example:
+     console.log(__dirname); // Output: the directory path of the current file
+   
+
+4. require():
+   - A built-in function that allows you to import other Node.js modules or external packages into your code.
+   - Link: https://nodejs.org/api/modules.html#requireid
+
+   - Example:
+     const fs = require('fs'); // Requires the built-in 'fs' module for file operations
+
+NOTE:
+These global and module-scope objects are automatically available in all modules, but their use is limited to specific scopes:
+- **Global objects** can be accessed from anywhere in the Node.js process.
+- **Module-scope objects** are available within the context of each module and help manage module-specific functionality.
+
+Understanding the scope and behavior of these objects is crucial when organizing and writing your Node.js applications, as it will help prevent potential conflicts or unintended side effects.
+
+For more detailed documentation on global objects and built-in module variables:
+- Global objects: https://nodejs.org/api/globals.html#global-objects
+- Modules and module-scope variables: https://nodejs.org/api/modules.html#module
+*/
+
 
 // Example of using the global object
 global.console.log("Hello World using global.console.log()!");
@@ -137,6 +189,11 @@ console.log("Our global variable 'myTopic' :", myTopic);
 "Global Variables" can be used/accessed inside another module (JS file) within the same project (app),
 but we still need to import/require the .js file that contains the global variable declaration first.
 */
+
+
+// The environment variable "NODE_ENV" needs to be set beforehand for testing:
+process.env.NODE_ENV = 'development'; // We can set environment variables manually
+console.log(process.env.NODE_ENV); // Output: development
 
 // Display file and directory names for reference
 console.log("File Name => " + __filename); // Displays the full path of the current file
@@ -219,4 +276,4 @@ function add(num1, num2) {
 // Below we assign the function to a variable, without calling it
 let sum = add; // Just a reference to the function
 let total = sum(5, 7); // Now we call the function using the reference
-console.log("Total:", total); // Outputs the result of the addition
+console.log("Total:", total); // Output: the result of the addition
